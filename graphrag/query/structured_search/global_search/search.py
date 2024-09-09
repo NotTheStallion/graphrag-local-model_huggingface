@@ -3,6 +3,7 @@
 
 """The GlobalSearch Implementation."""
 
+import re
 import asyncio
 import json
 import logging
@@ -185,13 +186,26 @@ class GlobalSearch(BaseSearch):
                 log.info("Map response: %s", search_response)
             try:
                 # parse search response json
+                # Remove all characters before the first '{'
+                search_response = re.sub(r'^[^{]*', '', search_response)
+                # Remove all characters after the last '}'
+                search_response = re.sub(r'[^}]*$', '', search_response)
+                # print("=" * 20, search_response)
                 processed_response = self.parse_search_response(search_response)
+                # processed_response = self.parse_search_response(search_response)
             except ValueError:
                 # Clean up and retry parse
                 search_response = clean_up_json(search_response)
                 try:
                     # parse search response json
+                    # print("=" * 20, search_response)
+                    # Remove all characters before the first '{'
+                    search_response = re.sub(r'^[^{]*', '', search_response)
+                    # Remove all characters after the last '}'
+                    search_response = re.sub(r'[^}]*$', '', search_response)
+                    # print("=" * 20, search_response)
                     processed_response = self.parse_search_response(search_response)
+                    # processed_response = self.parse_search_response(search_response)
                 except ValueError:
                     log.exception("Error parsing search response json")
                     processed_response = []
