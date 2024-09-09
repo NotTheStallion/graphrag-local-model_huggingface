@@ -1,1 +1,1 @@
-FROM ./falcon-7b.gguf
+FROM ./custom_model.gguf
