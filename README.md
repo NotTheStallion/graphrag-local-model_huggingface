@@ -1,20 +1,8 @@
-# GraphRAG_Hugging-Face
-This repository allows you to use GraphRAG and apply it using any models from Hugging Face or your own models.
-
-
-
-# GraphRAG_Hugging-Face
-This repository allows you to use GraphRAG and apply it using any models from Hugging Face or your own models.
-
-
-Here is the rewritten README file in Markdown format:
-
-```markdown
 # GraphRAG with Hugging Face
 
 This repository enables you to use GraphRAG with any models from Hugging Face, as well as your own models.
 
-## 📦 Installation and Setup
+## Installation and Setup
 
 To set up this repository and utilize GraphRAG with local models from Ollama, follow these steps:
 
@@ -179,3 +167,11 @@ python -m graphrag.index --root ./ragtest
 
 
 Note : Some custom models will make your graphrag crash if they do not follow the openai prompt style (change in `settings.yaml`), embedding (change in `settings.yaml`), or output a bad JSON format. So make sure to make the appropriate changes to adapt the graph rag to your own model.
+
+
+## Citations
+
+- Original GraphRAG repository by Microsoft: [GraphRAG](https://github.com/microsoft/graphrag)
+- Ollama: [Ollama](https://ollama.com/)
+
+Inspired by : [graph-rag-ollama](https://github.com/TheAiSingularity/graphrag-local-ollama)
